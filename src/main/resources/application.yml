@@ -15,6 +15,6 @@ eureka:
     preferIpAddress: true
 
 sidecar:
-  url: localhost
+  hostname: localhost
   port: 5001
-  health-uri: http://${sidecar.url}:${sidecar.port}/health
+  health-uri: http://${sidecar.hostname}:${sidecar.port}/health

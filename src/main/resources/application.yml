@@ -1,0 +1,20 @@
+server:
+  port: 5678
+
+spring:
+  application:
+    name: emp-api
+
+eureka:
+  serverUrl: localhost
+  serverPort: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.serverUrl}:${eureka.serverPort}/eureka
+  instance:
+    preferIpAddress: true
+
+sidecar:
+  url: localhost
+  port: 5001
+  health-uri: http://${sidecar.url}:${sidecar.port}/health

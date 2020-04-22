@@ -1,16 +1,21 @@
+spring:
+  profiles: 
+    active: local
+
+---
+
+spring:
+  profiles: local
+  application:
+    name: emp-api
+    
 server:
   port: 5678
 
-spring:
-  application:
-    name: emp-api
-
 eureka:
-  serverUrl: localhost
-  serverPort: 8761
   client:
     serviceUrl:
-      defaultZone: http://${eureka.serverUrl}:${eureka.serverPort}/eureka
+      defaultZone: http://host.docker.internal:8761/eureka
   instance:
     preferIpAddress: true
 
@@ -18,3 +23,25 @@ sidecar:
   hostname: localhost
   port: 5001
   health-uri: http://${sidecar.hostname}:${sidecar.port}/health
+
+---
+
+spring:
+  profiles: prod
+  application:
+    name: emp-api
+      
+server:
+  port: 5678
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://218.151.225.142:8761/eureka
+  instance:
+    preferIpAddress: true
+
+sidecar:
+  hostname: localhost
+  port: 5001
+  health-uri: http://${sidecar.hostname}:${sidecar.port}/health  

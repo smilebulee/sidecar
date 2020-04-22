@@ -14,9 +14,15 @@ server:
 
 eureka:
   client:
+    registerWithEureka: true
+    fetchRegistry: true
+    registry-fetch-interval-seconds: 30
+    disable-delta: true
     serviceUrl:
       defaultZone: http://host.docker.internal:8761/eureka
   instance:
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
     preferIpAddress: true
 
 sidecar:
@@ -36,9 +42,15 @@ server:
 
 eureka:
   client:
+    registerWithEureka: true
+    fetchRegistry: true
+    registry-fetch-interval-seconds: 30
+    disable-delta: true
     serviceUrl:
       defaultZone: http://218.151.225.142:8761/eureka
   instance:
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
     preferIpAddress: true
 
 sidecar:

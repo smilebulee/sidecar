@@ -8,9 +8,9 @@ import org.springframework.cloud.netflix.sidecar.EnableSidecar;
 @EnableSidecar
 public class SidecarApplication {
 	
-	// test 1111
+	// test 1111 develop
 	public static void main(String[] args) {
 		SpringApplication.run(SidecarApplication.class, args);
 	}
-
+	// develop
 }
